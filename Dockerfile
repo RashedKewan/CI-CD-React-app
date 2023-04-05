@@ -1,3 +1,5 @@
+# these dockerfile specefic used when we need to create a container that is going to be used in production.
+
 # from this FROM command and everything under it till the next FROM,all goiing to be referred t as a builder phase
 # Purpose : install dependences and build our application. 
 FROM node:16-alpine as builder

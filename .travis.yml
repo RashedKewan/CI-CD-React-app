@@ -12,5 +12,5 @@ before_install:
 
 # The script command specifies the actions that need to be performed to run the tests of the React application. In this case, we use Docker to run the tests and run the command npm run test to run the tests and the --coverage variable to get a report on the coverage of the tests
 script: 
-  - docker run kewanrashed/react npm run test -- --coverage
+  - docker run -e CI=true kewanrashed/react npm run test -- --coverage
 
