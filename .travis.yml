@@ -1,8 +1,16 @@
+
+# indicates that you need administrator privileges to run the tests.
 sudo: required
+
+# indicate that we are using Docker to run the tests.
 services:
   - docker
 
+# The before_install command builds a Docker image for our React application from the detailed file named Dockerfile.dev.
 before_install: 
   - docker build -t kewanrashed/react -f Dockerfile.dev .
+
+# The script command specifies the actions that need to be performed to run the tests of the React application. In this case, we use Docker to run the tests and run the command npm run test to run the tests and the --coverage variable to get a report on the coverage of the tests
 script: 
   - docker run kewanrashed/react npm run test -- --coverage
+
