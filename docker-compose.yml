@@ -1,13 +1,11 @@
+# AWS EBS will see a file named docker-compose.yml and use it to build the single container application.
 version: '3'
 services:
-  react-app: 
+  web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      - /app/node_modules
-      - .:/app
+      - '80:80'
 
-# > docker compose up
+# > docker-compose up

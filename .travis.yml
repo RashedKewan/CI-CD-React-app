@@ -10,7 +10,14 @@ services:
 before_install: 
   - docker build -t kewanrashed/react -f Dockerfile.dev .
 
-# The script command specifies the actions that need to be performed to run the tests of the React application. In this case, we use Docker to run the tests and run the command npm run test to run the tests and the --coverage variable to get a report on the coverage of the tests
+# The script command specifies the actions that need to be performed to run the tests of the React application. 
+# In this case, we use Docker to run the tests and run the command npm run test to run the tests and the 
+# --coverage variable to get a report on the coverage of the tests
+
+# CI=true :
+# used to make sure that the testing framework behaves appropriately in the CI 
+# environment, such as by disabling certain features that may not be needed or by 
+# outputting test results in a way that is compatible with the CI system.
 script: 
   - docker run -e CI=true kewanrashed/react npm run test -- --coverage
 
